@@ -47,7 +47,6 @@ const itemSchema = new Schema({
 
     discountedUnitConst: {
         type: Number,
-        required: true,
     },
 
     productImageURL: {
