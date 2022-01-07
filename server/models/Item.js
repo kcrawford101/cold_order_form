@@ -45,7 +45,7 @@ const itemSchema = new Schema({
         required: true,
     },
 
-    discountedUnitConst: {
+    discountedUnitCost: {
         type: Number,
     },
 
