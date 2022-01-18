@@ -1,4 +1,24 @@
 {
-  "dependencies": {
-  }
+  "name": "cold_order_form",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "concurrently": "^7.0.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kcrawford101/cold_order_form.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kcrawford101/cold_order_form/issues"
+  },
+  "homepage": "https://github.com/kcrawford101/cold_order_form#readme"
 }
