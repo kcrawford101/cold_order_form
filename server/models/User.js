@@ -17,11 +17,11 @@ const userSchema = new Schema({
     type: String,
     trim: true,
   },
-  fullName: {
+  name: {
     type: String,
     trim: true,
   },
-  territoy: {
+  region: {
     type: String,
     trim: true,
   },
