@@ -1,5 +1,5 @@
 const { Item } = require('../models/');
-const User = require('../models/User');
+const { User } = require('../models/User');
 
 const resolvers = {
 
@@ -19,12 +19,12 @@ const resolvers = {
     Mutation: {
         addUser: async (parent, { name, email, password, role, region, phoneNumber, empId  }) => {
             const user = await User.create({ name, email, password, role, region, phoneNumber, empId });
-            const token = signToken(user);
+            // const token = signToken(user);
             return { token, user }
           },
 
-        addProduct: async (parent, {category, item, certification, size, productCode, caseSize, unitCost, discountedUnitCost }) => {
-            const product = await Item.create({category, item, certification, size, productCode, caseSize, unitCost, discountedUnitCost})
+        addProduct: async (parent, {category, item, certification, size, productCode, caseSize, unitCost, discountedUnitCost, upc}) => {
+            const product = await Item.create({category, item, certification, size, productCode, caseSize, unitCost, discountedUnitCost, upc})
             return { product }
         }
     }
