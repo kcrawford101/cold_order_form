@@ -1,3 +1,4 @@
+
 const { Product } = require('../models/');
 const { User } = require('../models/');
 
@@ -26,6 +27,7 @@ const resolvers = {
     addProduct: async (parent, args, context, {item, upc, productCode, category, certification, size, caseSize, unitCost, discountedUnitCost, productImageURL}) => {
       const newProduct = await Product.create({item, upc, productCode, category, certification, size, caseSize, unitCost, discountedUnitCost, productImageURL})
       return { newProduct }
+
     }
   }
 };
