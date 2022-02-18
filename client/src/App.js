@@ -1,13 +1,13 @@
 import React from 'react';
 import './App.css';
-import Login from './pages/Login';
+import Add from './pages/Add';
 import Navbar from './components/Navbar/Navbar'
 
 function App() {
   return (
     <div className="App">
       <Navbar />
-      <Login />
+      <Add />
     </div>
   );
 }
