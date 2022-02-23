@@ -18,14 +18,19 @@ function App() {
       <Navbar />
       <div className="content">
         <Switch>
-          <Route path='/'>
+          <Route exact path='/'>
             <Dashboard />
           </Route>
-        </Switch>
-        
-        {/* <Add /> */}
-        {/* <Order /> */}
-        {/* <Submit /> */}
+          <Route exact path='/add'>
+            <Add />
+          </Route>
+          <Route exact path='/order'>
+            <Order />
+          </Route>
+          <Route exact path='/submit'>
+            <Submit />
+          </Route>
+        </Switch>        
       </div>
     </div>
     </Router>
