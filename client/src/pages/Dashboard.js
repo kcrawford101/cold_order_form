@@ -10,8 +10,8 @@ import Paper from '@mui/material/Paper';
 import Link from '@mui/material/Link';
 
 
-import RecentOrders from '../Components/RecentOrders/RecentOrders';
-import Profile from '../Components/Profile/Profile'
+import RecentOrders from '../components/RecentOrders/RecentOrders';
+import Profile from '../components/Profile/Profile';
 
 function Copyright(props) {
     return (
