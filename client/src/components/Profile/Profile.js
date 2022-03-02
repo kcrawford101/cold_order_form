@@ -32,8 +32,7 @@ function stringToColor(string) {
 }
 
 export default function Profile() {
-  return (
-    <Paper> 
+  return ( 
       <Grid container spacing={10}>
         <Grid item>
         <Avatar 
@@ -65,6 +64,5 @@ export default function Profile() {
           </Grid>
         </Grid>
       </Grid>
-    </Paper>
   )
 }
