@@ -4,6 +4,7 @@ import AcUnitIcon from '@mui/icons-material/AcUnit';
 import { useMutation } from '@apollo/client';
 // import { ADD_PRODUCT } from '../utils/mutations';
 
+
 function AddProduct() {
 
 	const btnStyle = { margin: '8px 0' }
@@ -130,9 +131,7 @@ function AddProduct() {
 				</Paper>
         <Button type='submit' color='primary' variant='contained' style={btnStyle} fullWidth>Add</Button>
 			</FormGroup>
-      </form>
-			
-			
+      </form>		
 		</Grid>
 	)
 }

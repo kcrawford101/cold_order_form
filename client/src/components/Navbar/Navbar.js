@@ -24,7 +24,7 @@ import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 
 // ============= Styling ============================ 
 const cart={color:'white',fontSize:'30px', margin:'0 0 0 10px'}
-const logo={fontSize:'50px'}
+const logo2={fontSize:'50px'}
 // ===================================================
 
 // ====== Menu items ==========
@@ -114,7 +114,7 @@ const ResponsiveAppBar = () => {
             component="div"
             sx={{ mr: 2, display: { xs: 'none', md: 'flex' } }}
           >
-            <AcUnitIcon style={logo} />
+            <AcUnitIcon style={logo2} />
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
