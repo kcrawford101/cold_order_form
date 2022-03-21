@@ -4,6 +4,9 @@ import AcUnitIcon from '@mui/icons-material/AcUnit';
 import { useMutation } from '@apollo/client';
 // import { ADD_PRODUCT } from '../utils/mutations';
 
+import CssBaseline from '@mui/material/CssBaseline';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+
 
 function AddProduct() {
 
@@ -112,7 +115,12 @@ function AddProduct() {
 		
 	};
 
+	const theme = createTheme();
+
 	return (
+	<div>
+	<ThemeProvider theme={theme}>
+      <CssBaseline />
 		<Grid>
 			<Grid align='center'>
 				<AcUnitIcon style={logo} /><Typography style={logoName} variant='h2'>Add Product</Typography>
@@ -133,6 +141,8 @@ function AddProduct() {
 			</FormGroup>
       </form>		
 		</Grid>
+	</ThemeProvider>
+	</div>
 	)
 }
 

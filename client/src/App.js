@@ -12,7 +12,7 @@ import Checkout from './pages/Checkout';
 
 
 function App() {
-  return (
+  return ( 
     <Router>
     <div className="App">
       <Navbar />
