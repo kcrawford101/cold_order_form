@@ -183,7 +183,7 @@ const ResponsiveAppBar = () => {
               inputProps={{ 'aria-label': 'search' }}
             />
           </Search>
-          <Link to='/submit'>
+          <Link to='/checkout'>
             <ShoppingCartOutlinedIcon style={cart} />
           </Link>
           
