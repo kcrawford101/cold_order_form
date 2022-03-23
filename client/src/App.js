@@ -10,7 +10,6 @@ import Order from './pages/Order';
 import Checkout from './pages/Checkout';
 
 
-
 function App() {
   return ( 
     <Router>
