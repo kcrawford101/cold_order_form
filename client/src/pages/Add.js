@@ -5,6 +5,10 @@ import { useMutation } from '@apollo/client';
 // import { ADD_PRODUCT } from '../utils/mutations';
 import Upload from '../components/Uploader/Uploader';
 
+import CssBaseline from '@mui/material/CssBaseline';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+
+
 function AddProduct() {
 
 	const btnStyle = { margin: '8px 0' }
@@ -112,7 +116,12 @@ function AddProduct() {
 
 	};
 
+	const theme = createTheme();
+
 	return (
+	<div>
+	<ThemeProvider theme={theme}>
+      <CssBaseline />
 		<Grid>
 			<Grid align='center'>
 				<AcUnitIcon style={logo} /><Typography style={logoName} variant='h2'>Add Product</Typography>
@@ -133,9 +142,24 @@ function AddProduct() {
 					<Button type='submit' color='primary' variant='contained' style={btnStyle} fullWidth>Add</Button>
 				</FormGroup>
 			</form>
-
-
+      <form onSubmit={(event) => handleFormSubmit(event)}>
+      <FormGroup >
+				<Paper elevation={10} style={paperStyle}>
+					<TextField onChange={(event) => handleInputChange(event)} value={productData.category} placeholder='Category' name='Category'  fullWidth required />
+					<TextField onChange={(event) => handleInputChange(event)} value={productData.productDescription} name='Product Description'  placeholder='Enter Description' fullWidth required />
+					<TextField onChange={(event) => handleInputChange(event)} value={productData.sizeWeight} name='Size'  placeholder='Enter Size' fullWidth required />
+					<TextField onChange={(event) => handleInputChange(event)} value={productData.caseSize} name='Case Size'  placeholder='Enter Case Size' fullWidth required />
+					<TextField onChange={(event) => handleInputChange(event)} value={productData.unitCost} name='Unit Cost'  placeholder='Enter Unit Cost' fullWidth required />
+					<TextField onChange={(event) => handleInputChange(event)} value={productData.discountedUnitCost} name='Discounted Unit Cost'  placeholder='Enter Discounted Unit Cost' fullWidth required />
+					<TextField onChange={(event) => handleInputChange(event)} value={productData.productCode} name='Product Code'  placeholder='Enter Product Code' fullWidth required />
+					<TextField onChange={(event) => handleInputChange(event)} value={productData.upc} name='UPC'  placeholder='Enter UPC' fullWidth required />
+				</Paper>
+        <Button type='submit' color='primary' variant='contained' style={btnStyle} fullWidth>Add</Button>
+			</FormGroup>
+      </form>		
 		</Grid>
+	</ThemeProvider>
+	</div>
 	)
 }
 

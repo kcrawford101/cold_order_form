@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { Link } from 'react-router-dom';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -23,11 +24,29 @@ import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 
 // ============= Styling ============================ 
 const cart={color:'white',fontSize:'30px', margin:'0 0 0 10px'}
-const logo={fontSize:'50px'}
+const logo2={fontSize:'50px'}
 // ===================================================
 
 // ====== Menu items ==========
-const pages = ['Dashboard', 'Order Products', 'Add Products'];
+// const pages = ['Dashboard', 'Order Products', 'Add Products'];
+
+const pages = [
+  {
+    name: 'Dashboard',
+    id: 0,
+    link: '/'
+  },
+  {
+    name: 'Order Product',
+    id: 1,
+    link: '/order'
+  },
+  {
+    name: 'Add Product',
+    id: 2,
+    link: '/add'
+  },
+];
 // ============================
 
 // ============= Searchbar Logic ==========================
@@ -95,7 +114,7 @@ const ResponsiveAppBar = () => {
             component="div"
             sx={{ mr: 2, display: { xs: 'none', md: 'flex' } }}
           >
-            <AcUnitIcon style={logo} />
+            <AcUnitIcon style={logo2} />
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
@@ -127,9 +146,9 @@ const ResponsiveAppBar = () => {
                 display: { xs: 'block', md: 'none' },
               }}
             >
-              {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
+              {pages.map(({id, name, link}) => (
+                <MenuItem key={id} onClick={handleCloseNavMenu}>
+                <Link to={link}><Typography textAlign="center">{name}</Typography></Link>
                 </MenuItem>
               ))}
             </Menu>
@@ -143,14 +162,15 @@ const ResponsiveAppBar = () => {
             <AcUnitIcon style={{margin:'0 20px 0 0'}}/>
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-            {pages.map((page) => (
-              <Button
-                key={page}
+            {pages.map(({id, name, link}) => (
+              <Link to={link}><Button
+                key={id}
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
-                {page}
+                {name}
               </Button>
+              </Link>
             ))}
           </Box>
 
@@ -163,8 +183,10 @@ const ResponsiveAppBar = () => {
               inputProps={{ 'aria-label': 'search' }}
             />
           </Search>
-
-          <ShoppingCartOutlinedIcon style={cart} />
+          <Link to='/checkout'>
+            <ShoppingCartOutlinedIcon style={cart} />
+          </Link>
+          
 
         </Toolbar>
       </Container>

@@ -1,0 +1,21 @@
+.btnStyle {
+    margin: 8px 0;
+}
+
+.logo {
+    font-size: 175px;
+    margin: 15px 0 0;
+    color: #5e9dd6;
+}
+
+.logoName {
+    margin: 0 0 50px;
+    color: #5e9dd6;
+}
+
+.paperStyle {
+    padding: 20;
+    height: fit-content;
+    width: 500;
+    margin: 20px auto;
+}
