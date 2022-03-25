@@ -5,7 +5,7 @@ import './App.css';
 import Navbar from './components/Navbar/Navbar';
 // import Login from './pages/Login';
 import Dashboard from './pages/Dashboard';
-import Add from './pages/Add';
+// import Add from './pages/Add';
 import Order from './pages/Order';
 import Checkout from './pages/Checkout';
 
@@ -20,9 +20,9 @@ function App() {
           <Route exact path='/'>
             <Dashboard />
           </Route>
-          <Route exact path='/add'>
+          {/* <Route exact path='/add'>
             <Add />
-          </Route>
+          </Route> */}
           <Route exact path='/order'>
             <Order />
           </Route>
