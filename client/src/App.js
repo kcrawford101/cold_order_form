@@ -3,11 +3,12 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.css';
 
 import Navbar from './components/Navbar/Navbar';
-// import Login from './pages/Login';
+import Login from './pages/Login';
 import Dashboard from './pages/Dashboard';
 // import Add from './pages/Add';
 import Order from './pages/Order';
 import Checkout from './pages/Checkout';
+import Test from './pages/test';
 
 
 function App() {
@@ -28,6 +29,12 @@ function App() {
           </Route>
           <Route exact path='/checkout'>
             <Checkout />
+          </Route>
+          <Route exact path='/login'>
+            <Login />
+          </Route>
+          <Route exact path='/test'>
+            <Test />
           </Route>
         </Switch>        
       </div>
