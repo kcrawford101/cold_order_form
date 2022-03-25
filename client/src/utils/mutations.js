@@ -18,7 +18,7 @@ mutation  addProduct($category: String!, $item: String!, $certification: String!
 `;
 
 export const EDIT_PRODUCT = gql` 
-mutation editProduct($category: String!, $item: String!, $certification: String!, $size: String!, $productCode: String!, $caseSize: !Int, $unitCost: $Int, $discountedUnitCost: !Int, ){
+mutation editProduct($category: String!, $item: String!, $certification: String!, $size: String!, $productCode: String!, $caseSize: !Int, $unitCost: Int!, $discountedUnitCost: Int!, ){
     editProduct(productData:$productData) {
         product{
             item

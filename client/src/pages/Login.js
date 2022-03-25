@@ -41,10 +41,8 @@ function Login(props) {
 
             Auth.login(data.login.token);
 
-            if (data.login.user.role === "developer") {
-                window.location.assign('/homedev');
-            } else {
-                window.location.assign('/homecli');
+            if (data.login.user.role === "name") {
+                window.location.assign('/dashboard');
             }
 
         } catch (e) {
@@ -73,7 +71,7 @@ function Login(props) {
                 <FormGroup>
                     <FormControlLabel control={<Checkbox />} label="Remember me" />
                 </FormGroup>
-                <Button type='submit' color='primary' variant='contained' style={btnStyle} fullWidth>Sign In</Button>
+                <Button type='submit' color='primary' variant='contained' style={btnStyle} fullWidth onClick={handleFormSubmit}>Sign In</Button>
                 <Typography align='center'><Link href="#" >Forgot my password</Link></Typography>
             </Paper>
         </Grid>
