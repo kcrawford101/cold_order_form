@@ -4,6 +4,7 @@ import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
+import LogoutIcon from '@mui/icons-material/Logout';
 import Typography from '@mui/material/Typography';
 import Menu from '@mui/material/Menu';
 import MenuIcon from '@mui/icons-material/Menu';
@@ -23,7 +24,8 @@ import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 // =====================================================
 
 // ============= Styling ============================ 
-const cart={color:'white',fontSize:'30px', margin:'0 0 0 10px'}
+const cart={color:'white',fontSize:'45px', margin:'0 0 0 10px'}
+const logout={color:'white',fontSize:'30px', margin:'0 0 0 10px'}
 const logo2={fontSize:'50px'}
 // ===================================================
 
@@ -34,7 +36,7 @@ const pages = [
   {
     name: 'Dashboard',
     id: 0,
-    link: '/'
+    link: '/dashboard'
   },
   {
     name: 'Order Product',
@@ -185,6 +187,9 @@ const ResponsiveAppBar = () => {
           </Search>
           <Link to='/checkout'>
             <ShoppingCartOutlinedIcon style={cart} />
+          </Link>
+          <Link to='/'>
+            <LogoutIcon style={logout} />
           </Link>
           
 

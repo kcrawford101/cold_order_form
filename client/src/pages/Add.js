@@ -120,7 +120,7 @@ function AddProduct() {
 
 	return (
 	<div>
-	<ThemeProvider theme={theme}>
+	<ThemeProvider theme={theme}>	
       <CssBaseline />
 		<Grid>
 			<Grid align='center'>

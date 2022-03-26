@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { styled, createTheme, ThemeProvider } from '@mui/material/styles';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -9,7 +9,7 @@ import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
 import Link from '@mui/material/Link';
 
-
+import Navbar from '../components/Navbar/Navbar';
 import RecentOrders from '../components/RecentOrders/RecentOrders';
 import Profile from '../components/Profile/Profile';
 
@@ -31,8 +31,9 @@ const mdTheme = createTheme();
 export default function Dashboard() {
     return (
         <ThemeProvider theme={mdTheme}>
+            <Navbar />
             <Box sx={{ display: 'flex' }}>
-                <CssBaseline />
+                <CssBaseline />                
                 <Box
                     component="main"
                     sx={{
