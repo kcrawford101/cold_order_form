@@ -10,7 +10,11 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
+import Box from '@mui/material/Box';
+
+
 import Navbar from '../components/Navbar/Navbar';
+import { CssBaseline } from '@mui/material';
 
 
 const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
@@ -47,7 +51,22 @@ function Order(props) {
             )}
             */}
             <ThemeProvider theme={theme}>
+                <Box
+                component="main"
+        
+                sx={{
+                backgroundColor: (theme) =>
+                    theme.palette.mode === 'light'
+                        ? theme.palette.grey[100]
+                        : theme.palette.grey[900],
+                flexGrow: 1,
+                height: '100vh',
+                overflow: 'auto',
+                display: 'flex' 
+                }}
+                >
                 <Navbar />
+                <CssBaseline />
                 <Container sx={{ py: 8 }} maxWidth="md">
                     <Grid container spacing={4}> 
                         {cards.map((card) => (
@@ -80,6 +99,8 @@ function Order(props) {
                         ))}
                     </Grid>
                 </Container>
+                </Box>           
+                
             </ThemeProvider>
 
 

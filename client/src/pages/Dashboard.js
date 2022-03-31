@@ -31,8 +31,8 @@ const mdTheme = createTheme();
 export default function Dashboard() {
     return (
         <ThemeProvider theme={mdTheme}>
-            <Navbar />
             <Box sx={{ display: 'flex' }}>
+                <Navbar />
                 <CssBaseline />                
                 <Box
                     component="main"
