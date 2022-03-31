@@ -1,55 +1,25 @@
 import * as React from 'react';
-import { Link } from 'react-router-dom';
-import AppBar from '@mui/material/AppBar';
+import { styled, createTheme, ThemeProvider, alpha } from '@mui/material/styles';
+import CssBaseline from '@mui/material/CssBaseline';
+import MuiDrawer from '@mui/material/Drawer';
 import Box from '@mui/material/Box';
+import MuiAppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
-import IconButton from '@mui/material/IconButton';
-import LogoutIcon from '@mui/icons-material/Logout';
+import List from '@mui/material/List';
 import Typography from '@mui/material/Typography';
-import Menu from '@mui/material/Menu';
+import Divider from '@mui/material/Divider';
+import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
-import Container from '@mui/material/Container';
-import Button from '@mui/material/Button';
-import MenuItem from '@mui/material/MenuItem';
+import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
+import LogoutIcon from '@mui/icons-material/Logout';
 
 // ====== Searchbar import ===================
-import { styled, alpha } from '@mui/material/styles';
 import SearchIcon from '@mui/icons-material/Search';
 import InputBase from '@mui/material/InputBase';
 // ============================================
 
-// ========= Icon imports ==============================
-import AcUnitIcon from '@mui/icons-material/AcUnit';
-import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
-// =====================================================
 
-// ============= Styling ============================ 
-const cart={color:'white',fontSize:'45px', margin:'0 0 0 10px'}
-const logout={color:'white',fontSize:'30px', margin:'0 0 0 10px'}
-const logo2={fontSize:'50px'}
-// ===================================================
-
-// ====== Menu items ==========
-// const pages = ['Dashboard', 'Order Products', 'Add Products'];
-
-const pages = [
-  {
-    name: 'Dashboard',
-    id: 0,
-    link: '/dashboard'
-  },
-  {
-    name: 'Order Product',
-    id: 1,
-    link: '/order'
-  },
-  {
-    name: 'Add Product',
-    id: 2,
-    link: '/add'
-  },
-];
-// ============================
+import { mainListItems, secondaryListItems } from './ListItems';
 
 // ============= Searchbar Logic ==========================
 const Search = styled('div')(({ theme }) => ({
@@ -95,107 +65,151 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 }));
 // ==================================================
 
-const ResponsiveAppBar = () => {
-  const [anchorElNav, setAnchorElNav] = React.useState(null);
+const drawerWidth = 240;
 
-  const handleOpenNavMenu = (event) => {
-    setAnchorElNav(event.currentTarget);
+const AppBar = styled(MuiAppBar, {
+  shouldForwardProp: (prop) => prop !== 'open',
+})(({ theme, open }) => ({
+  zIndex: theme.zIndex.drawer + 1,
+  transition: theme.transitions.create(['width', 'margin'], {
+    easing: theme.transitions.easing.sharp,
+    duration: theme.transitions.duration.leavingScreen,
+  }),
+  ...(open && {
+    marginLeft: drawerWidth,
+    width: `calc(100% - ${drawerWidth}px)`,
+    transition: theme.transitions.create(['width', 'margin'], {
+      easing: theme.transitions.easing.sharp,
+      duration: theme.transitions.duration.enteringScreen,
+    }),
+  }),
+}));
+
+const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' })(
+  ({ theme, open }) => ({
+    '& .MuiDrawer-paper': {
+      position: 'relative',
+      whiteSpace: 'nowrap',
+      width: drawerWidth,
+      transition: theme.transitions.create('width', {
+        easing: theme.transitions.easing.sharp,
+        duration: theme.transitions.duration.enteringScreen,
+      }),
+      boxSizing: 'border-box',
+      ...(!open && {
+        overflowX: 'hidden',
+        transition: theme.transitions.create('width', {
+          easing: theme.transitions.easing.sharp,
+          duration: theme.transitions.duration.leavingScreen,
+        }),
+        width: theme.spacing(7),
+        [theme.breakpoints.up('sm')]: {
+          width: theme.spacing(9),
+        },
+      }),
+    },
+  }),
+);
+
+const mdTheme = createTheme();
+
+const logout={color:'white',fontSize:'30px', margin:'0 0 0 10px'}
+
+function NavbarContent () {
+  const [open, setOpen] = React.useState(true);
+  const toggleDrawer = () => {
+    setOpen(!open);
   };
-  
-  const handleCloseNavMenu = () => {
-    setAnchorElNav(null);
-  };
-  
+
   return (
-    <AppBar position="static">
-      <Container maxWidth="xl">
-        <Toolbar disableGutters>
-          <Typography
-            variant="h6"
-            noWrap
-            component="div"
-            sx={{ mr: 2, display: { xs: 'none', md: 'flex' } }}
+    <ThemeProvider theme={mdTheme}>
+      <Box sx={{ display: 'flex' }}>
+        <CssBaseline />
+        <AppBar position="absolute" open={open}>
+          <Toolbar
+            sx={{
+              pr: '24px', // keep right padding when drawer closed
+            }}
           >
-            <AcUnitIcon style={logo2} />
-          </Typography>
-
-          <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
             <IconButton
-              size="large"
-              aria-label="account of current user"
-              aria-controls="menu-appbar"
-              aria-haspopup="true"
-              onClick={handleOpenNavMenu}
+              edge="start"
               color="inherit"
+              aria-label="open drawer"
+              onClick={toggleDrawer}
+              sx={{
+                marginRight: '36px',
+                ...(open && { display: 'none' }),
+              }}
             >
               <MenuIcon />
             </IconButton>
-            <Menu
-              id="menu-appbar"
-              anchorEl={anchorElNav}
-              anchorOrigin={{
-                vertical: 'bottom',
-                horizontal: 'left',
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: 'top',
-                horizontal: 'left',
-              }}
-              open={Boolean(anchorElNav)}
-              onClose={handleCloseNavMenu}
-              sx={{
-                display: { xs: 'block', md: 'none' },
-              }}
+            <Typography
+              component="h1"
+              variant="h6"
+              color="inherit"
+              noWrap
+              sx={{ flexGrow: 1 }}
             >
-              {pages.map(({id, name, link}) => (
-                <MenuItem key={id} onClick={handleCloseNavMenu}>
-                <Link to={link}><Typography textAlign="center">{name}</Typography></Link>
-                </MenuItem>
-              ))}
-            </Menu>
-          </Box>
-          <Typography
-            variant="h6"
-            noWrap
-            component="div"
-            sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}
+              Dashboard
+            </Typography>
+            
+              <Search>
+                <SearchIconWrapper>
+                  <SearchIcon />
+                </SearchIconWrapper>
+                <StyledInputBase              
+                  placeholder="Search…"
+                  inputProps={{ 'aria-label': 'search' }}
+                />
+              </Search>
+
+
+            <IconButton color="inherit">
+              
+              <LogoutIcon style={logout}/>
+              
+            </IconButton>
+          </Toolbar>
+        </AppBar>
+        <Drawer variant="permanent" open={open}>
+          <Toolbar
+            sx={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'flex-end',
+              px: [1],
+            }}
           >
-            <AcUnitIcon style={{margin:'0 20px 0 0'}}/>
-          </Typography>
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-            {pages.map(({id, name, link}) => (
-              <Link to={link}><Button
-                key={id}
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'white', display: 'block' }}
-              >
-                {name}
-              </Button>
-              </Link>
-            ))}
-          </Box>
-
-          <Search>
-            <SearchIconWrapper>
-              <SearchIcon />
-            </SearchIconWrapper>
-            <StyledInputBase              
-              placeholder="Search…"
-              inputProps={{ 'aria-label': 'search' }}
-            />
-          </Search>
-          <Link to='/checkout'>
-            <ShoppingCartOutlinedIcon style={cart} />
-          </Link>
-          <Link to='/'>
-            <LogoutIcon style={logout} />
-          </Link>
-          
-
-        </Toolbar>
-      </Container>
-    </AppBar>
+            <IconButton onClick={toggleDrawer}>
+              <ChevronLeftIcon />
+            </IconButton>
+          </Toolbar>
+          <Divider />
+          <List component="nav">
+            {mainListItems}
+            <Divider sx={{ my: 1 }} />
+            {secondaryListItems}
+          </List>
+        </Drawer>
+        <Box
+          component="main"
+          sx={{
+            backgroundColor: (theme) =>
+              theme.palette.mode === 'light'
+                ? theme.palette.grey[100]
+                : theme.palette.grey[900],
+            flexGrow: 1,
+            height: '100vh',
+            overflow: 'auto',
+          }}
+        >
+          <Toolbar />
+        </Box>
+      </Box>
+    </ThemeProvider>
   );
-};
-export default ResponsiveAppBar;
+}
+
+export default function Navbar() {
+  return <NavbarContent />;
+}
