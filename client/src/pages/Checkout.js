@@ -46,9 +46,23 @@ export default function Checkout() {
 
   return (
     <ThemeProvider theme={theme}>
-      <Navbar />
+      <Box 
+      component="main"
+        
+        sx={{
+        backgroundColor: (theme) =>
+            theme.palette.mode === 'light'
+                ? theme.palette.grey[100]
+                : theme.palette.grey[900],
+        flexGrow: 1,
+        height: '100vh',
+        overflow: 'auto',
+        display: 'flex' 
+        }}
+        >
+        <Navbar />
       <CssBaseline />
-       <Container component="main" maxWidth="sm" sx={{ mb: 4 }}>
+       <Container component="main" maxWidth="sm" sx={{ mt: 4, mb: 4 }}>
         <Paper variant="outlined" sx={{ my: { xs: 3, md: 6 }, p: { xs: 2, md: 3 } }}>
           <Typography component="h1" variant="h4" align="center">
             Checkout
@@ -95,6 +109,7 @@ export default function Checkout() {
           </React.Fragment>
         </Paper>
       </Container>
+      </Box>
     </ThemeProvider>
   )
 }
