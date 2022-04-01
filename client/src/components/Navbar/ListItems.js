@@ -13,38 +13,41 @@ import { Link } from '@mui/material';
 
 export const mainListItems = (
   <React.Fragment>
-    <ListItemButton>
-      <ListItemIcon>
-        <DashboardIcon />
-      </ListItemIcon>
-      <Link href='/'>
-      <ListItemText primary="Dashboard" />
-      </Link>
-    </ListItemButton>
-    <ListItemButton>
-      <ListItemIcon>
-        <ShoppingCartIcon />
-      </ListItemIcon>
-      <Link href='/checkout'>
-        <ListItemText primary="Checkout Order" />
-      </Link>
-    </ListItemButton>
+    <Link href='/dashboard'>
+      <ListItemButton>
+        <ListItemIcon>
+          <DashboardIcon />
+        </ListItemIcon>
+        <ListItemText primary="Dashboard" />
+      </ListItemButton>
+    </Link>
+
+    <Link href='/checkout'>
+      <ListItemButton>
+        <ListItemIcon>
+          <ShoppingCartIcon />
+        </ListItemIcon>
+          <ListItemText primary="Checkout Order" />
+      </ListItemButton>
+    </Link>
+    
+    <Link href='/add'>
     <ListItemButton>
       <ListItemIcon>
         <AddIcon />
-      </ListItemIcon>
-      <Link href='/add'>
+      </ListItemIcon> 
       <ListItemText primary="Add Products" />
-      </Link>
     </ListItemButton>
-    <ListItemButton>
-      <ListItemIcon>
-        <LocalOfferIcon />
-      </ListItemIcon>
-      <Link href='/order'>
-      <ListItemText primary="Order Products" />
-      </Link>      
-    </ListItemButton>
+    </Link>
+
+    <Link href='/order'>
+      <ListItemButton>
+        <ListItemIcon>
+          <LocalOfferIcon />
+        </ListItemIcon>
+        <ListItemText primary="Order Products" />       
+      </ListItemButton>
+    </Link>
   </React.Fragment>
 );
 

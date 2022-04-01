@@ -12,6 +12,7 @@ import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import LogoutIcon from '@mui/icons-material/Logout';
+import { Link } from '@mui/material';
 
 // ====== Searchbar import ===================
 import SearchIcon from '@mui/icons-material/Search';
@@ -163,12 +164,11 @@ function NavbarContent () {
                 />
               </Search>
 
-
-            <IconButton color="inherit">
-              
-              <LogoutIcon style={logout}/>
-              
-            </IconButton>
+            <Link href='/'>
+              <IconButton color="inherit">
+                <LogoutIcon style={logout}/> 
+              </IconButton>
+            </Link>
           </Toolbar>
         </AppBar>
         <Drawer variant="permanent" open={open}>
